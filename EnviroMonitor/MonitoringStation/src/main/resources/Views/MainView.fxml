@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox prefHeight="55.0" prefWidth="309.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label text="Reading Simulator (Move above 50 for alarming reading)" />
+      <Slider fx:id="readingSlider" prefHeight="38.0" prefWidth="324.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+   </children>
+</VBox>

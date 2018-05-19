@@ -1,0 +1,41 @@
+module Environment {
+
+    struct Reading {
+        long long date_time;
+        string station_name;
+        boolean status;
+        string location;
+        string group;
+        float alarm_level;
+        float reading_value;
+    };
+
+    interface MonitoringStation {
+        readonly attribute string station_name;
+        readonly attribute string group_name;
+        readonly attribute string location;
+        attribute float alarming_level;
+        Reading get_reading();
+        void turn_on();
+        void turn_off();
+        void reset();
+    } ;
+
+    typedef sequence<Reading> Log_of_alarm_readings;
+    typedef sequence<Reading> Set_of_readings;
+
+    interface RegionalCentre {
+        readonly attribute string name;
+        readonly attribute Log_of_alarm_readings log;
+        void raise_alarm (in Reading alarmReading );
+        Set_of_readings take_readings();
+        void add_monitoring_station(in string station_name, in string station_group, in string station_location);
+    } ;
+
+    interface EnvironmentalCentre {
+        void raise_alarm(in string center_name, in Set_of_readings readings_list);
+        void register_agency(in string who, in string email, in string region_of_interest);
+        void register_regional_centre(in string centre_name);
+    } ;
+
+};
